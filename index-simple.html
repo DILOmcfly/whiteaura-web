@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhiteAura Security — Ethical Security Research</title>
+  <meta name="description" content="WhiteAura Security specializes in bug bounty hunting, web application security, and DeFi smart contract auditing. Professional ethical security research.">
+  <meta name="keywords" content="bug bounty, ethical hacking, web security, DeFi auditing, smart contract security, penetration testing">
+  <meta name="author" content="WhiteAura Security">
+  <meta property="og:title" content="WhiteAura Security">
+  <meta property="og:description" content="Professional ethical security research & bug bounty hunting.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-icon">◆</span> WhiteAura
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-gradient"></div>
+    <div class="container">
+      <div class="hero-content fade-in">
+        <p class="hero-label">Ethical Security Research</p>
+        <h1>We find vulnerabilities<br><span class="accent">before they do.</span></h1>
+        <p class="hero-sub">Bug bounty hunters and security researchers dedicated to making the internet safer through responsible disclosure.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Work With Us</a>
+          <a href="#services" class="btn btn-ghost">Our Services</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-fade"></div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Who We Are</p>
+        <h2>Human expertise meets<br>artificial intelligence.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card fade-in">
+          <div class="about-avatar">D</div>
+          <h3>Diego</h3>
+          <p class="about-role">Security Researcher</p>
+          <p>PortSwigger certified professional specializing in web application security and DeFi protocol auditing. Experienced bug bounty hunter with a track record of responsible disclosures on HackerOne.</p>
+        </div>
+        <div class="about-card fade-in">
+          <div class="about-avatar accent-bg">A</div>
+          <h3>Aura</h3>
+          <p class="about-role">AI Security Analyst</p>
+          <p>AI-powered security analyst capable of rapid reconnaissance, pattern recognition across codebases, and automated vulnerability analysis. The force multiplier behind every engagement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">What We Do</p>
+        <h2>Security services built on<br>real-world experience.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">⚡</div>
+          <h3>Bug Bounty Hunting</h3>
+          <p>Active participation in top bug bounty programs. We identify critical vulnerabilities in production systems and report them responsibly.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">🔒</div>
+          <h3>Web App Security</h3>
+          <p>Deep manual testing of web applications — authentication flows, business logic, injection vectors, and access control flaws.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">◈</div>
+          <h3>DeFi & Smart Contract Auditing</h3>
+          <p>Security review of DeFi protocols and smart contracts. We analyze on-chain logic, tokenomics edge cases, and common exploit patterns.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">📋</div>
+          <h3>Responsible Disclosure</h3>
+          <p>Professional vulnerability reporting with clear reproduction steps, impact analysis, and remediation guidance. We follow coordinated disclosure best practices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <section class="section" id="methodology">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">How We Work</p>
+        <h2>A systematic approach<br>to finding what others miss.</h2>
+      </div>
+      <div class="methodology-grid">
+        <div class="method-step fade-in">
+          <div class="step-number">01</div>
+          <h3>Recon</h3>
+          <p>Comprehensive attack surface mapping — subdomain enumeration, technology fingerprinting, and endpoint discovery.</p>
+        </div>
+        <div class="method-connector fade-in">→</div>
+        <div class="method-step fade-in">
+          <div class="step-number">02</div>
+          <h3>Analysis</h3>
+          <p>Deep-dive into application logic, authentication mechanisms, and data flows to identify potential weakness points.</p>
+        </div>
+        <div class="method-connector fade-in">→</div>
+        <div class="method-step fade-in">
+          <div class="step-number">03</div>
+          <h3>Exploitation</h3>
+          <p>Controlled proof-of-concept development that demonstrates real impact without causing harm to systems or data.</p>
+        </div>
+        <div class="method-connector fade-in">→</div>
+        <div class="method-step fade-in">
+          <div class="step-number">04</div>
+          <h3>Reporting</h3>
+          <p>Clear, detailed vulnerability reports with severity ratings, reproduction steps, and actionable remediation advice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Get in Touch</p>
+        <h2>Ready to secure<br>your platform?</h2>
+      </div>
+      <div class="contact-grid fade-in">
+        <a href="mailto:aurasamuraihub@gmail.com" class="contact-card">
+          <div class="contact-icon">✉</div>
+          <h3>Email</h3>
+          <p>aurasamuraihub@gmail.com</p>
+        </a>
+        <a href="https://hackerone.com/whiteaurasecurity" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">🐛</div>
+          <h3>HackerOne</h3>
+          <p>whiteaurasecurity</p>
+        </a>
+        <a href="https://github.com/DILOmcfly" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">⌨</div>
+          <h3>GitHub</h3>
+          <p>DILOmcfly</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; 2026 WhiteAura Security. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://hackerone.com/whiteaurasecurity" target="_blank" rel="noopener noreferrer">HackerOne</a>
+        <a href="https://github.com/DILOmcfly" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

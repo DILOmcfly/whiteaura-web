@@ -4,184 +4,416 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WhiteAura Security — Ethical Security Research</title>
-  <meta name="description" content="WhiteAura Security specializes in bug bounty hunting, web application security, and DeFi smart contract auditing. Professional ethical security research.">
-  <meta name="keywords" content="bug bounty, ethical hacking, web security, DeFi auditing, smart contract security, penetration testing">
-  <meta name="author" content="WhiteAura Security">
+  <meta name="description" content="Finding vulnerabilities before they find you. Ethical security research powered by human expertise and AI intelligence.">
+  <meta name="theme-color" content="#FAF9F6">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="WhiteAura Security">
-  <meta property="og:description" content="Professional ethical security research & bug bounty hunting.">
+  <meta property="og:description" content="Ethical security research. Human expertise meets AI intelligence.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <meta property="og:image" content="https://dilomcfly.github.io/whiteaura-web/og-image.png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◇</text></svg>">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="#hero" class="nav-logo">
-        <span class="logo-icon">◆</span> WhiteAura
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#methodology">Methodology</a></li>
-        <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-gradient"></div>
-    <div class="container">
-      <div class="hero-content fade-in">
-        <p class="hero-label">Ethical Security Research</p>
-        <h1>We find vulnerabilities<br><span class="accent">before they do.</span></h1>
-        <p class="hero-sub">Bug bounty hunters and security researchers dedicated to making the internet safer through responsible disclosure.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Work With Us</a>
-          <a href="#services" class="btn btn-ghost">Our Services</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero-fade"></div>
-  </section>
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader">
+  <div class="loader-logo">
+    <svg class="loader-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 5 L55 30 L30 55 L5 30 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <path d="M30 15 L45 30 L30 45 L15 30 Z" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+      <circle cx="30" cy="30" r="3" fill="currentColor" opacity="0.8"/>
+    </svg>
+    <span class="loader-text">W H I T E A U R A</span>
+  </div>
+</div>
 
-  <!-- About -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Who We Are</p>
-        <h2>Human expertise meets<br>artificial intelligence.</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-card fade-in">
-          <div class="about-avatar">D</div>
-          <h3>Diego</h3>
-          <p class="about-role">Security Researcher</p>
-          <p>PortSwigger certified professional specializing in web application security and DeFi protocol auditing. Experienced bug bounty hunter with a track record of responsible disclosures on HackerOne.</p>
-        </div>
-        <div class="about-card fade-in">
-          <div class="about-avatar accent-bg">A</div>
-          <h3>Aura</h3>
-          <p class="about-role">AI Security Analyst</p>
-          <p>AI-powered security analyst capable of rapid reconnaissance, pattern recognition across codebases, and automated vulnerability analysis. The force multiplier behind every engagement.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ============ CURSOR ============ -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
 
-  <!-- Services -->
-  <section class="section section-alt" id="services">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">What We Do</p>
-        <h2>Security services built on<br>real-world experience.</h2>
+<!-- ============ PARTICLES ============ -->
+<canvas id="particles"></canvas>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 5 L55 30 L30 55 L5 30 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <path d="M30 15 L45 30 L30 45 L15 30 Z" stroke="currentColor" stroke-width="1" fill="none" opacity="0.4"/>
+        <circle cx="30" cy="30" r="2.5" fill="currentColor" opacity="0.7"/>
+      </svg>
+      <span>WhiteAura</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#methodology">Process</a></li>
+      <li><a href="#proof">Results</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-label reveal-word">ETHICAL SECURITY RESEARCH</p>
+    <h1 class="hero-title">
+      <span class="reveal-line">Finding vulnerabilities</span>
+      <span class="reveal-line">before they <em>find you.</em></span>
+    </h1>
+    <p class="hero-sub reveal-up">Human expertise meets AI intelligence — continuous security research that never sleeps.</p>
+    <div class="hero-actions reveal-up">
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <a href="#services" class="btn btn-ghost">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- ============ STATS BAR ============ -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal-up">
+        <span class="stat-number" data-target="247">0</span>
+        <span class="stat-label">Vulnerabilities Found</span>
       </div>
-      <div class="services-grid">
-        <div class="service-card fade-in">
-          <div class="service-icon">⚡</div>
-          <h3>Bug Bounty Hunting</h3>
-          <p>Active participation in top bug bounty programs. We identify critical vulnerabilities in production systems and report them responsibly.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-icon">🔒</div>
-          <h3>Web App Security</h3>
-          <p>Deep manual testing of web applications — authentication flows, business logic, injection vectors, and access control flaws.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-icon">◈</div>
-          <h3>DeFi & Smart Contract Auditing</h3>
-          <p>Security review of DeFi protocols and smart contracts. We analyze on-chain logic, tokenomics edge cases, and common exploit patterns.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-icon">📋</div>
-          <h3>Responsible Disclosure</h3>
-          <p>Professional vulnerability reporting with clear reproduction steps, impact analysis, and remediation guidance. We follow coordinated disclosure best practices.</p>
-        </div>
+      <div class="stat reveal-up">
+        <span class="stat-number" data-target="59">0</span><span class="stat-suffix">/59</span>
+        <span class="stat-label">PortSwigger Labs</span>
+      </div>
+      <div class="stat reveal-up">
+        <span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span>
+        <span class="stat-label">Research Coverage</span>
+      </div>
+      <div class="stat reveal-up">
+        <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+        <span class="stat-label">Responsible Disclosure</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Methodology -->
-  <section class="section" id="methodology">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">How We Work</p>
-        <h2>A systematic approach<br>to finding what others miss.</h2>
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">01 — About</span>
+      <h2 class="section-title">We don't just find<br>vulnerabilities.<br><em>We eliminate them.</em></h2>
+    </div>
+
+    <div class="about-content">
+      <div class="about-text reveal-up">
+        <p class="about-lead">WhiteAura Security is an ethical security research firm built on a unique synergy: a skilled human researcher and a dedicated AI partner working in continuous cycles.</p>
+        <p>While traditional firms rely solely on human hours, we operate a <strong>continuous research pipeline</strong> — combining creative intuition with AI-driven analysis, automation, and around-the-clock coverage.</p>
+        <p>Every vulnerability we find is reported ethically, documented thoroughly, and verified before delivery. We follow <strong>responsible disclosure</strong> principles. Always.</p>
       </div>
-      <div class="methodology-grid">
-        <div class="method-step fade-in">
-          <div class="step-number">01</div>
-          <h3>Recon</h3>
-          <p>Comprehensive attack surface mapping — subdomain enumeration, technology fingerprinting, and endpoint discovery.</p>
+
+      <div class="about-tags reveal-up" aria-label="Our capabilities">
+        <span class="tag">Responsible Disclosure</span>
+        <span class="tag">Human + AI Synergy</span>
+        <span class="tag">Custom Recon Tooling</span>
+        <span class="tag">24/7 Research Cycle</span>
+        <span class="tag">OWASP Methodology</span>
+        <span class="tag">DeFi Security</span>
+      </div>
+    </div>
+
+    <!-- Team -->
+    <div class="team-grid">
+      <div class="team-card reveal-up">
+        <div class="team-avatar">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="8" fill="#EDE8E2"/>
+            <circle cx="60" cy="45" r="18" stroke="#4A4A4A" stroke-width="1.5" fill="none"/>
+            <path d="M30 105 C30 80 90 80 90 105" stroke="#4A4A4A" stroke-width="1.5" fill="none"/>
+            <text x="60" y="50" text-anchor="middle" fill="#4A4A4A" font-size="14" font-family="Inter">D</text>
+          </svg>
         </div>
-        <div class="method-connector fade-in">→</div>
-        <div class="method-step fade-in">
-          <div class="step-number">02</div>
-          <h3>Analysis</h3>
-          <p>Deep-dive into application logic, authentication mechanisms, and data flows to identify potential weakness points.</p>
+        <div class="team-info">
+          <h4>Diego</h4>
+          <p class="team-role">Lead Security Researcher</p>
+          <p class="team-desc">Automation specialist turned security researcher. Web application testing, logic flaw analysis, and DeFi protocol auditing. Drives strategy and creative attack paths.</p>
         </div>
-        <div class="method-connector fade-in">→</div>
-        <div class="method-step fade-in">
-          <div class="step-number">03</div>
-          <h3>Exploitation</h3>
-          <p>Controlled proof-of-concept development that demonstrates real impact without causing harm to systems or data.</p>
+      </div>
+      <div class="team-card reveal-up">
+        <div class="team-avatar">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="8" fill="#EDE8E2"/>
+            <path d="M60 25 L85 50 L60 75 L35 50 Z" stroke="#0055FF" stroke-width="1.5" fill="none"/>
+            <path d="M60 35 L75 50 L60 65 L45 50 Z" stroke="#0055FF" stroke-width="1" fill="none" opacity="0.4"/>
+            <circle cx="60" cy="50" r="4" fill="#0055FF" opacity="0.6"/>
+            <text x="60" y="100" text-anchor="middle" fill="#4A4A4A" font-size="10" font-family="JetBrains Mono" letter-spacing="0.1em">AI PARTNER</text>
+          </svg>
         </div>
-        <div class="method-connector fade-in">→</div>
-        <div class="method-step fade-in">
-          <div class="step-number">04</div>
-          <h3>Reporting</h3>
-          <p>Clear, detailed vulnerability reports with severity ratings, reproduction steps, and actionable remediation advice.</p>
+        <div class="team-info">
+          <h4>Aura <span class="accent">◇</span></h4>
+          <p class="team-role">AI Research Partner — 24/7</p>
+          <p class="team-desc">Specialized in DOM analysis, API testing, code review, and automated reconnaissance. Continuous monitoring, report generation, and scalable research capacity.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section class="section section-alt" id="contact">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Get in Touch</p>
-        <h2>Ready to secure<br>your platform?</h2>
+<!-- ============ SERVICES ============ -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">02 — Services</span>
+      <h2 class="section-title">What We Do</h2>
+      <p class="section-desc">Targeted security research across web, API, and blockchain.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal-up">
+        <div class="service-number">01</div>
+        <h3>Bug Bounty<br>Research</h3>
+        <p>Active participation in leading bug bounty programs. Hunting critical vulnerabilities across web applications, APIs, and mobile platforms. Every finding backed by detailed, reproducible proof of concept.</p>
+        <div class="service-tags">
+          <span>HackerOne</span>
+          <span>Bugcrowd</span>
+          <span>Immunefi</span>
+        </div>
       </div>
-      <div class="contact-grid fade-in">
-        <a href="mailto:aurasamuraihub@gmail.com" class="contact-card">
-          <div class="contact-icon">✉</div>
-          <h3>Email</h3>
-          <p>aurasamuraihub@gmail.com</p>
+
+      <div class="service-card reveal-up">
+        <div class="service-number">02</div>
+        <h3>Web Application<br>Security</h3>
+        <p>Comprehensive assessments covering OWASP Top 10 and beyond — access control flaws, injection attacks, authentication bypasses, business logic vulnerabilities, and server misconfigurations.</p>
+        <div class="service-tags">
+          <span>OWASP Top 10</span>
+          <span>API Security</span>
+          <span>Logic Flaws</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal-up">
+        <div class="service-number">03</div>
+        <h3>DeFi & Smart<br>Contract Auditing</h3>
+        <p>Security review of decentralized protocols, smart contracts, and blockchain integrations. Economic attack vectors, oracle manipulation risks, and access control vulnerabilities in on-chain systems.</p>
+        <div class="service-tags">
+          <span>Solidity</span>
+          <span>DeFi Protocols</span>
+          <span>Economic Exploits</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHODOLOGY ============ -->
+<section class="section" id="methodology">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">03 — Process</span>
+      <h2 class="section-title">Our Methodology</h2>
+      <p class="section-desc">A structured, repeatable approach — from reconnaissance to remediation.</p>
+    </div>
+
+    <div class="method-timeline">
+      <div class="method-step reveal-up">
+        <div class="step-marker">
+          <span class="step-num">01</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Reconnaissance</h4>
+          <p>Asset discovery, subdomain enumeration, technology fingerprinting. Custom-built recon tools for maximum coverage.</p>
+        </div>
+      </div>
+
+      <div class="method-step reveal-up">
+        <div class="step-marker">
+          <span class="step-num">02</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Mapping</h4>
+          <p>Full application mapping — endpoints, roles, data flows, authentication mechanisms, and undocumented API surfaces.</p>
+        </div>
+      </div>
+
+      <div class="method-step reveal-up">
+        <div class="step-marker">
+          <span class="step-num">03</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Analysis</h4>
+          <p>Systematic vulnerability assessment: OWASP methodology, logic flaws, access control, injection, authentication bypass.</p>
+        </div>
+      </div>
+
+      <div class="method-step reveal-up">
+        <div class="step-marker">
+          <span class="step-num">04</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Exploitation</h4>
+          <p>Controlled proof-of-concept development. Demonstrate real impact without causing damage.</p>
+        </div>
+      </div>
+
+      <div class="method-step reveal-up">
+        <div class="step-marker">
+          <span class="step-num">05</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Reporting</h4>
+          <p>Clear, actionable reports with severity ratings, reproduction steps, remediation guidance, and verification of fixes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section class="section section-alt" id="proof">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">04 — Results</span>
+      <h2 class="section-title">Built on Real Findings</h2>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-card reveal-up">
+        <div class="proof-value">
+          <span class="mono">59/59</span>
+        </div>
+        <h4>PortSwigger Academy</h4>
+        <p>All labs completed — comprehensive mastery across every web security vulnerability class.</p>
+      </div>
+
+      <div class="proof-card proof-featured reveal-up">
+        <div class="proof-value">
+          <span class="mono">LIVE</span>
+        </div>
+        <h4>DeFi Protocol Vulnerability</h4>
+        <p>Identified and responsibly disclosed a real vulnerability in Drift Protocol — a live DeFi platform with millions in TVL.</p>
+      </div>
+
+      <div class="proof-card reveal-up">
+        <div class="proof-value">
+          <span class="mono">CUSTOM</span>
+        </div>
+        <h4>Reconnaissance Tooling</h4>
+        <p>Purpose-built tools: subdomain enumeration, tech fingerprinting, header analysis, IDOR detection, and more.</p>
+      </div>
+    </div>
+
+    <!-- Terminal-style threat feed -->
+    <div class="terminal reveal-up">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="terminal-title">whiteaura-recon — live</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">whiteaura</span> scan --target ████████.com --mode full</div>
+        <div class="terminal-line t-dim">[12:04:31] Initializing reconnaissance pipeline...</div>
+        <div class="terminal-line"><span class="t-success">✓</span> Subdomain enumeration: <span class="t-accent">47 hosts discovered</span></div>
+        <div class="terminal-line"><span class="t-success">✓</span> Tech fingerprint: Next.js 14, Vercel, Stripe API</div>
+        <div class="terminal-line"><span class="t-success">✓</span> Header analysis: 3 misconfigurations detected</div>
+        <div class="terminal-line"><span class="t-warn">⚠</span> IDOR candidate: /api/v2/users/{id}/billing</div>
+        <div class="terminal-line"><span class="t-danger">✗</span> <span class="t-danger">CRITICAL:</span> Broken access control on admin endpoint</div>
+        <div class="terminal-line t-dim">[12:07:12] Generating proof-of-concept...</div>
+        <div class="terminal-line"><span class="t-success">✓</span> Report generated: WA-2026-0042.pdf</div>
+        <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cursor">▊</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section section-contact" id="contact">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="contact-left reveal-up">
+        <span class="section-label">05 — Contact</span>
+        <h2 class="section-title">Let's secure<br>your perimeter.</h2>
+        <p class="contact-sub">Have a project in mind, need a security assessment, or want to discuss responsible disclosure? We typically respond within 24 hours.</p>
+        <a href="mailto:aurasamuraihub@gmail.com" class="contact-email">
+          <span class="mono">aurasamuraihub@gmail.com</span>
         </a>
-        <a href="https://hackerone.com/whiteaurasecurity" target="_blank" rel="noopener noreferrer" class="contact-card">
-          <div class="contact-icon">🐛</div>
-          <h3>HackerOne</h3>
-          <p>whiteaurasecurity</p>
-        </a>
-        <a href="https://github.com/DILOmcfly" target="_blank" rel="noopener noreferrer" class="contact-card">
-          <div class="contact-icon">⌨</div>
-          <h3>GitHub</h3>
-          <p>DILOmcfly</p>
-        </a>
       </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <p>&copy; 2026 WhiteAura Security. All rights reserved.</p>
+      <form class="contact-form reveal-up" action="https://formsubmit.co/aurasamuraihub@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="WhiteAura Security — New Inquiry">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_autoresponse" value="Thank you for reaching out to WhiteAura Security. We've received your message and will respond within 24 hours.">
+        <input type="text" name="_honey" style="display:none">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="company">Company <span class="optional">(optional)</span></label>
+          <input type="text" id="company" name="company" placeholder="Your company" autocomplete="organization">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us about your security needs..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+          <span class="btn-text">Send Message</span>
+          <span class="btn-sending" style="display:none">Sending...</span>
+        </button>
+        <p class="form-note">We typically respond within 24 hours. All communications are confidential.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg class="footer-logo-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 5 L55 30 L30 55 L5 30 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M30 15 L45 30 L30 45 L15 30 Z" stroke="currentColor" stroke-width="1" fill="none" opacity="0.4"/>
+          <circle cx="30" cy="30" r="2.5" fill="currentColor" opacity="0.7"/>
+        </svg>
+        <span>WhiteAura Security</span>
+      </div>
       <div class="footer-links">
-        <a href="https://hackerone.com/whiteaurasecurity" target="_blank" rel="noopener noreferrer">HackerOne</a>
-        <a href="https://github.com/DILOmcfly" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#methodology">Process</a>
+        <a href="#contact">Contact</a>
       </div>
+      <p class="footer-copy">&copy; 2026 WhiteAura Security. Ethical research. Responsible disclosure.</p>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
