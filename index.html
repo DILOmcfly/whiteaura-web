@@ -39,6 +39,22 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-trail" id="cursorTrail"></div>
 
+<!-- ============ PARALLAX PHOTOS ============ -->
+<div class="parallax-photos" id="parallaxPhotos">
+  <img src="images/diego.jpg" alt="Diego" class="parallax-fig parallax-diego" id="parallaxDiego">
+  <img src="images/aura.jpg" alt="Aura" class="parallax-fig parallax-aura" id="parallaxAura">
+</div>
+
+<!-- ============ SVG FILTERS ============ -->
+<svg style="position:absolute;width:0;height:0">
+  <defs>
+    <filter id="dissolveFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="2" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="80" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
 <!-- ============ PARTICLES ============ -->
 <canvas id="particles"></canvas>
 
@@ -55,11 +71,18 @@
     </a>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#methodology">Process</a></li>
-      <li><a href="#proof">Results</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#methodology" data-i18n="nav.process">Process</a></li>
+      <li><a href="#proof" data-i18n="nav.results">Results</a></li>
+      <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a></li>
+      <li>
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+          <span class="lang-opt" data-lang="en">EN</span>
+          <span class="lang-sep">|</span>
+          <span class="lang-opt" data-lang="es">ES</span>
+        </button>
+      </li>
     </ul>
 
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -71,15 +94,15 @@
 <!-- ============ HERO ============ -->
 <header class="hero" id="hero">
   <div class="hero-content">
-    <p class="hero-label reveal-word">ETHICAL SECURITY RESEARCH</p>
+    <p class="hero-label reveal-word" data-i18n="hero.label">ETHICAL SECURITY RESEARCH</p>
     <h1 class="hero-title">
-      <span class="reveal-line">Finding vulnerabilities</span>
-      <span class="reveal-line">before they <em>find you.</em></span>
+      <span class="reveal-line" data-i18n="hero.title1">Finding vulnerabilities</span>
+      <span class="reveal-line" data-i18n="hero.title2html">before they <em>find you.</em></span>
     </h1>
-    <p class="hero-sub reveal-up">Human expertise meets AI intelligence — continuous security research that never sleeps.</p>
+    <p class="hero-sub reveal-up" data-i18n="hero.sub">Human expertise meets AI intelligence — continuous security research that never sleeps.</p>
     <div class="hero-actions reveal-up">
-      <a href="#contact" class="btn btn-primary">Get in Touch</a>
-      <a href="#services" class="btn btn-ghost">Explore Services</a>
+      <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Get in Touch</a>
+      <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Explore Services</a>
     </div>
   </div>
   <div class="hero-scroll-indicator">
@@ -94,19 +117,19 @@
     <div class="stats-grid">
       <div class="stat reveal-up">
         <span class="stat-number" data-target="247">0</span>
-        <span class="stat-label">Vulnerabilities Found</span>
+        <span class="stat-label" data-i18n="stats.vulns">Vulnerabilities Found</span>
       </div>
       <div class="stat reveal-up">
         <span class="stat-number" data-target="59">0</span><span class="stat-suffix">/59</span>
-        <span class="stat-label">PortSwigger Labs</span>
+        <span class="stat-label" data-i18n="stats.labs">PortSwigger Labs</span>
       </div>
       <div class="stat reveal-up">
         <span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span>
-        <span class="stat-label">Research Coverage</span>
+        <span class="stat-label" data-i18n="stats.coverage">Research Coverage</span>
       </div>
       <div class="stat reveal-up">
         <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
-        <span class="stat-label">Responsible Disclosure</span>
+        <span class="stat-label" data-i18n="stats.disclosure">Responsible Disclosure</span>
       </div>
     </div>
   </div>
@@ -116,15 +139,15 @@
 <section class="section" id="about">
   <div class="container">
     <div class="section-header reveal-up">
-      <span class="section-label">01 — About</span>
-      <h2 class="section-title">We don't just find<br>vulnerabilities.<br><em>We eliminate them.</em></h2>
+      <span class="section-label" data-i18n="about.label">01 — About</span>
+      <h2 class="section-title" data-i18n="about.titlehtml">We don't just find<br>vulnerabilities.<br><em>We eliminate them.</em></h2>
     </div>
 
     <div class="about-content">
       <div class="about-text reveal-up">
-        <p class="about-lead">WhiteAura Security is an ethical security research firm built on a unique synergy: a skilled human researcher and a dedicated AI partner working in continuous cycles.</p>
-        <p>While traditional firms rely solely on human hours, we operate a <strong>continuous research pipeline</strong> — combining creative intuition with AI-driven analysis, automation, and around-the-clock coverage.</p>
-        <p>Every vulnerability we find is reported ethically, documented thoroughly, and verified before delivery. We follow <strong>responsible disclosure</strong> principles. Always.</p>
+        <p class="about-lead" data-i18n="about.lead">WhiteAura Security is an ethical security research firm built on a unique synergy: a skilled human researcher and a dedicated AI partner working in continuous cycles.</p>
+        <p data-i18n="about.p1html">While traditional firms rely solely on human hours, we operate a <strong>continuous research pipeline</strong> — combining creative intuition with AI-driven analysis, automation, and around-the-clock coverage.</p>
+        <p data-i18n="about.p2html">Every vulnerability we find is reported ethically, documented thoroughly, and verified before delivery. We follow <strong>responsible disclosure</strong> principles. Always.</p>
       </div>
 
       <div class="about-tags reveal-up" aria-label="Our capabilities">
@@ -150,8 +173,8 @@
         </div>
         <div class="team-info">
           <h4>Diego</h4>
-          <p class="team-role">Lead Security Researcher</p>
-          <p class="team-desc">Automation specialist turned security researcher. Web application testing, logic flaw analysis, and DeFi protocol auditing. Drives strategy and creative attack paths.</p>
+          <p class="team-role" data-i18n="team.diego.role">Lead Security Researcher</p>
+          <p class="team-desc" data-i18n="team.diego.desc">Automation specialist turned security researcher. Web application testing, logic flaw analysis, and DeFi protocol auditing. Drives strategy and creative attack paths.</p>
         </div>
       </div>
       <div class="team-card reveal-up">
@@ -166,8 +189,8 @@
         </div>
         <div class="team-info">
           <h4>Aura <span class="accent">◇</span></h4>
-          <p class="team-role">AI Research Partner — 24/7</p>
-          <p class="team-desc">Specialized in DOM analysis, API testing, code review, and automated reconnaissance. Continuous monitoring, report generation, and scalable research capacity.</p>
+          <p class="team-role" data-i18n="team.aura.role">AI Research Partner — 24/7</p>
+          <p class="team-desc" data-i18n="team.aura.desc">Specialized in DOM analysis, API testing, code review, and automated reconnaissance. Continuous monitoring, report generation, and scalable research capacity.</p>
         </div>
       </div>
     </div>
@@ -178,16 +201,16 @@
 <section class="section section-alt" id="services">
   <div class="container">
     <div class="section-header reveal-up">
-      <span class="section-label">02 — Services</span>
-      <h2 class="section-title">What We Do</h2>
-      <p class="section-desc">Targeted security research across web, API, and blockchain.</p>
+      <span class="section-label" data-i18n="services.label">02 — Services</span>
+      <h2 class="section-title" data-i18n="services.title">What We Do</h2>
+      <p class="section-desc" data-i18n="services.desc">Targeted security research across web, API, and blockchain.</p>
     </div>
 
     <div class="services-grid">
       <div class="service-card reveal-up">
         <div class="service-number">01</div>
-        <h3>Bug Bounty<br>Research</h3>
-        <p>Active participation in leading bug bounty programs. Hunting critical vulnerabilities across web applications, APIs, and mobile platforms. Every finding backed by detailed, reproducible proof of concept.</p>
+        <h3 data-i18n="services.s1.titlehtml">Bug Bounty<br>Research</h3>
+        <p data-i18n="services.s1.desc">Active participation in leading bug bounty programs. Hunting critical vulnerabilities across web applications, APIs, and mobile platforms. Every finding backed by detailed, reproducible proof of concept.</p>
         <div class="service-tags">
           <span>HackerOne</span>
           <span>Bugcrowd</span>
@@ -197,8 +220,8 @@
 
       <div class="service-card reveal-up">
         <div class="service-number">02</div>
-        <h3>Web Application<br>Security</h3>
-        <p>Comprehensive assessments covering OWASP Top 10 and beyond — access control flaws, injection attacks, authentication bypasses, business logic vulnerabilities, and server misconfigurations.</p>
+        <h3 data-i18n="services.s2.titlehtml">Web Application<br>Security</h3>
+        <p data-i18n="services.s2.desc">Comprehensive assessments covering OWASP Top 10 and beyond — access control flaws, injection attacks, authentication bypasses, business logic vulnerabilities, and server misconfigurations.</p>
         <div class="service-tags">
           <span>OWASP Top 10</span>
           <span>API Security</span>
@@ -208,8 +231,8 @@
 
       <div class="service-card reveal-up">
         <div class="service-number">03</div>
-        <h3>DeFi & Smart<br>Contract Auditing</h3>
-        <p>Security review of decentralized protocols, smart contracts, and blockchain integrations. Economic attack vectors, oracle manipulation risks, and access control vulnerabilities in on-chain systems.</p>
+        <h3 data-i18n="services.s3.titlehtml">DeFi & Smart<br>Contract Auditing</h3>
+        <p data-i18n="services.s3.desc">Security review of decentralized protocols, smart contracts, and blockchain integrations. Economic attack vectors, oracle manipulation risks, and access control vulnerabilities in on-chain systems.</p>
         <div class="service-tags">
           <span>Solidity</span>
           <span>DeFi Protocols</span>
@@ -224,9 +247,9 @@
 <section class="section" id="methodology">
   <div class="container">
     <div class="section-header reveal-up">
-      <span class="section-label">03 — Process</span>
-      <h2 class="section-title">Our Methodology</h2>
-      <p class="section-desc">A structured, repeatable approach — from reconnaissance to remediation.</p>
+      <span class="section-label" data-i18n="method.label">03 — Process</span>
+      <h2 class="section-title" data-i18n="method.title">Our Methodology</h2>
+      <p class="section-desc" data-i18n="method.desc">A structured, repeatable approach — from reconnaissance to remediation.</p>
     </div>
 
     <div class="method-timeline">
@@ -236,8 +259,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h4>Reconnaissance</h4>
-          <p>Asset discovery, subdomain enumeration, technology fingerprinting. Custom-built recon tools for maximum coverage.</p>
+          <h4 data-i18n="method.s1.title">Reconnaissance</h4>
+          <p data-i18n="method.s1.desc">Asset discovery, subdomain enumeration, technology fingerprinting. Custom-built recon tools for maximum coverage.</p>
         </div>
       </div>
 
@@ -247,8 +270,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h4>Mapping</h4>
-          <p>Full application mapping — endpoints, roles, data flows, authentication mechanisms, and undocumented API surfaces.</p>
+          <h4 data-i18n="method.s2.title">Mapping</h4>
+          <p data-i18n="method.s2.desc">Full application mapping — endpoints, roles, data flows, authentication mechanisms, and undocumented API surfaces.</p>
         </div>
       </div>
 
@@ -258,8 +281,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h4>Analysis</h4>
-          <p>Systematic vulnerability assessment: OWASP methodology, logic flaws, access control, injection, authentication bypass.</p>
+          <h4 data-i18n="method.s3.title">Analysis</h4>
+          <p data-i18n="method.s3.desc">Systematic vulnerability assessment: OWASP methodology, logic flaws, access control, injection, authentication bypass.</p>
         </div>
       </div>
 
@@ -269,8 +292,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h4>Exploitation</h4>
-          <p>Controlled proof-of-concept development. Demonstrate real impact without causing damage.</p>
+          <h4 data-i18n="method.s4.title">Exploitation</h4>
+          <p data-i18n="method.s4.desc">Controlled proof-of-concept development. Demonstrate real impact without causing damage.</p>
         </div>
       </div>
 
@@ -280,8 +303,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h4>Reporting</h4>
-          <p>Clear, actionable reports with severity ratings, reproduction steps, remediation guidance, and verification of fixes.</p>
+          <h4 data-i18n="method.s5.title">Reporting</h4>
+          <p data-i18n="method.s5.desc">Clear, actionable reports with severity ratings, reproduction steps, remediation guidance, and verification of fixes.</p>
         </div>
       </div>
     </div>
@@ -292,8 +315,8 @@
 <section class="section section-alt" id="proof">
   <div class="container">
     <div class="section-header reveal-up">
-      <span class="section-label">04 — Results</span>
-      <h2 class="section-title">Built on Real Findings</h2>
+      <span class="section-label" data-i18n="proof.label">04 — Results</span>
+      <h2 class="section-title" data-i18n="proof.title">Built on Real Findings</h2>
     </div>
 
     <div class="proof-grid">
@@ -301,24 +324,24 @@
         <div class="proof-value">
           <span class="mono">59/59</span>
         </div>
-        <h4>PortSwigger Academy</h4>
-        <p>All labs completed — comprehensive mastery across every web security vulnerability class.</p>
+        <h4 data-i18n="proof.c1.title">PortSwigger Academy</h4>
+        <p data-i18n="proof.c1.desc">All labs completed — comprehensive mastery across every web security vulnerability class.</p>
       </div>
 
       <div class="proof-card proof-featured reveal-up">
         <div class="proof-value">
           <span class="mono">LIVE</span>
         </div>
-        <h4>DeFi Protocol Vulnerability</h4>
-        <p>Identified and responsibly disclosed a real vulnerability in Drift Protocol — a live DeFi platform with millions in TVL.</p>
+        <h4 data-i18n="proof.c2.title">DeFi Protocol Vulnerability</h4>
+        <p data-i18n="proof.c2.desc">Identified and responsibly disclosed a real vulnerability in Drift Protocol — a live DeFi platform with millions in TVL.</p>
       </div>
 
       <div class="proof-card reveal-up">
         <div class="proof-value">
           <span class="mono">CUSTOM</span>
         </div>
-        <h4>Reconnaissance Tooling</h4>
-        <p>Purpose-built tools: subdomain enumeration, tech fingerprinting, header analysis, IDOR detection, and more.</p>
+        <h4 data-i18n="proof.c3.title">Reconnaissance Tooling</h4>
+        <p data-i18n="proof.c3.desc">Purpose-built tools: subdomain enumeration, tech fingerprinting, header analysis, IDOR detection, and more.</p>
       </div>
     </div>
 
@@ -351,9 +374,9 @@
   <div class="container">
     <div class="contact-layout">
       <div class="contact-left reveal-up">
-        <span class="section-label">05 — Contact</span>
-        <h2 class="section-title">Let's secure<br>your perimeter.</h2>
-        <p class="contact-sub">Have a project in mind, need a security assessment, or want to discuss responsible disclosure? We typically respond within 24 hours.</p>
+        <span class="section-label" data-i18n="contact.label">05 — Contact</span>
+        <h2 class="section-title" data-i18n="contact.titlehtml">Let's secure<br>your perimeter.</h2>
+        <p class="contact-sub" data-i18n="contact.sub">Have a project in mind, need a security assessment, or want to discuss responsible disclosure? We typically respond within 24 hours.</p>
         <a href="mailto:aurasamuraihub@gmail.com" class="contact-email">
           <span class="mono">aurasamuraihub@gmail.com</span>
         </a>
@@ -366,7 +389,7 @@
         <input type="hidden" name="_autoresponse" value="Thank you for reaching out to WhiteAura Security. We've received your message and will respond within 24 hours.">
         <input type="text" name="_honey" style="display:none">
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name" data-i18n="contact.form.name">Name</label>
           <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
         </div>
         <div class="form-group">
@@ -378,14 +401,14 @@
           <input type="text" id="company" name="company" placeholder="Your company" autocomplete="organization">
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
+          <label for="message" data-i18n="contact.form.message">Message</label>
           <textarea id="message" name="message" rows="5" placeholder="Tell us about your security needs..." required></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-          <span class="btn-text">Send Message</span>
-          <span class="btn-sending" style="display:none">Sending...</span>
+          <span class="btn-text" data-i18n="contact.form.send">Send Message</span>
+          <span class="btn-sending" style="display:none" data-i18n="contact.form.sending">Sending...</span>
         </button>
-        <p class="form-note">We typically respond within 24 hours. All communications are confidential.</p>
+        <p class="form-note" data-i18n="contact.form.note">We typically respond within 24 hours. All communications are confidential.</p>
       </form>
     </div>
   </div>

@@ -1092,6 +1092,63 @@ input, textarea { font: inherit; }
 .stats-grid .reveal-up:nth-child(3) { transition-delay: 0.2s; }
 .stats-grid .reveal-up:nth-child(4) { transition-delay: 0.3s; }
 
+/* === LANGUAGE TOGGLE === */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--wa-silver);
+  padding: 0.3rem 0.5rem;
+  border-radius: 2px;
+  transition: color 0.3s;
+}
+
+.lang-toggle:hover { color: var(--wa-charcoal); }
+
+.lang-sep { color: var(--wa-pearl); }
+
+.lang-opt { transition: color 0.3s, font-weight 0.3s; }
+.lang-opt.active {
+  color: var(--wa-accent);
+  font-weight: 600;
+}
+
+/* === PARALLAX PHOTOS === */
+.parallax-photos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.parallax-fig {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70vh;
+  max-height: 600px;
+  width: auto;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: none;
+  will-change: transform, opacity, filter;
+}
+
+.parallax-diego {
+  left: -10%;
+}
+
+.parallax-aura {
+  right: -10%;
+}
+
 /* === MONO UTILITY === */
 .mono {
   font-family: var(--font-mono);
@@ -1189,6 +1246,15 @@ input, textarea { font: inherit; }
 
   .cursor, .cursor-trail {
     display: none !important;
+  }
+
+  .parallax-fig {
+    height: 50vh;
+    max-height: 400px;
+  }
+
+  .lang-toggle {
+    font-size: 0.65rem;
   }
 }
 
